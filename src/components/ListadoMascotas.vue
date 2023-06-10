@@ -47,7 +47,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-4 d-flex align-items-center">
-                                <img :src="mascota.imagen" class="mascota-img" alt="...">
+                                <img :src="mascota.fotos[0]" class="mascota-img" alt="...">
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
@@ -97,9 +97,10 @@ export default {
                     sexo: "Macho",
                     especie: "gato",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://farm2.staticflickr.com/1919/45579541712_f58c1fd0ed_o.jpg",
+                    fotos: ["https://farm2.staticflickr.com/1919/45579541712_f58c1fd0ed_o.jpg"],
                     adopcion: "si",
-                    extraviado: "no"
+                    extraviado: "no",
+                    nChip:"12323"
                 },
                 {
                     id:2,
@@ -108,9 +109,10 @@ export default {
                     sexo: "Hembra",
                     especie: "gato",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://www.recreoviral.com/wp-content/uploads/2016/11/GATOS-HERMOSOS4.jpg",
+                    fotos: ["https://www.recreoviral.com/wp-content/uploads/2016/11/GATOS-HERMOSOS4.jpg"],
                     adopcion: "no",
-                    extraviado: "no"
+                    extraviado: "no",
+                    nChip:"12323"
                 },
                 {
                     id:3,
@@ -119,9 +121,10 @@ export default {
                     sexo: "Macho",
                     especie: "perro",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://th.bing.com/th/id/OIP.GClVM1YWXc9uQCg1fyjKOAHaHc?pid=ImgDet&rs=1",
+                    fotos: ["https://th.bing.com/th/id/OIP.GClVM1YWXc9uQCg1fyjKOAHaHc?pid=ImgDet&rs=1"],
                     adopcion: "no",
-                    extraviado: "no"
+                    extraviado: "no",
+                    nChip:"12323"
                 },
                 {
                     id:4,
@@ -130,9 +133,10 @@ export default {
                     sexo: "Hembra",
                     especie: "perro",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://http2.mlstatic.com/husky-siberiano-cachorros-huskys-siberianos-D_NQ_NP_731352-MLM40154638212_122019-F.jpg",
+                    fotos: ["https://http2.mlstatic.com/husky-siberiano-cachorros-huskys-siberianos-D_NQ_NP_731352-MLM40154638212_122019-F.jpg"],
                     adopcion: "si",
-                    extraviado: "si"
+                    extraviado: "si",
+                    nChip:"12323"
                 },
                 {
                     id:5,
@@ -141,9 +145,10 @@ export default {
                     sexo: "Hembra",
                     especie: "gato",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://lh5.ggpht.com/_-4wZchZlPgw/S8DVDk-KlaI/AAAAAAAABE4/Qi3fs4yYXaY/fat_cats_15_thumb.jpg?imgmax=800",
+                    fotos: ["https://lh5.ggpht.com/_-4wZchZlPgw/S8DVDk-KlaI/AAAAAAAABE4/Qi3fs4yYXaY/fat_cats_15_thumb.jpg?imgmax=800"],
                     adopcion: "si",
-                    extraviado: "no"
+                    extraviado: "no",
+                    nChip:"12323"
                 },
                 {
                     id:6,
@@ -152,9 +157,10 @@ export default {
                     sexo: "macho",
                     especie: "gato",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://i0.wp.com/worldcatcomedy.com/wp-content/uploads/2019/12/maxresdefault-62.jpg?fit=1200%2C675&ssl=1",
+                    fotos: ["https://i0.wp.com/worldcatcomedy.com/wp-content/uploads/2019/12/maxresdefault-62.jpg?fit=1200%2C675&ssl=1"],
                     adopcion: "no",
-                    extraviado: "si"
+                    extraviado: "si",
+                    nChip:"12323"
                 },
                 {
                     id:7,
@@ -163,9 +169,10 @@ export default {
                     sexo: "Hembra",
                     especie: "perro",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://i.pinimg.com/originals/3a/ca/48/3aca488058341fcd5fb727864fe5ebf5.jpg",
+                    fotos: ["https://i.pinimg.com/originals/3a/ca/48/3aca488058341fcd5fb727864fe5ebf5.jpg"],
                     adopcion: "si",
-                    extraviado: "no"
+                    extraviado: "no",
+                    nChip:"12323"
                 },
                 {
                     id:8,
@@ -174,9 +181,10 @@ export default {
                     sexo: "macho",
                     especie: "perro",
                     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis nesciunt provident dolore, doloremque quisquam nihil ipsam adipisci et dolores numquam illum aspernatur similique pariatur cumque labore laudantium molestias neque qui. Quo magnam nihil culpa eos. Quisquam, itaque voluptate recusandae iste voluptatibus animi. Officia enim quos quibusdam itaque aliquam, deserunt tempore ad culpa nulla, nesciunt facere. Ab eaque eum asperiores nisi.',
-                    imagen: "https://yt3.ggpht.com/a-/AN66SAxGoz0gtEwAK-U-l6nGNlv2gyR6NyoGcnXyYw=s900-mo-c-c0xffffffff-rj-k-no",
+                    fotos: ["https://yt3.ggpht.com/a-/AN66SAxGoz0gtEwAK-U-l6nGNlv2gyR6NyoGcnXyYw=s900-mo-c-c0xffffffff-rj-k-no"],
                     adopcion: "no",
-                    extraviado: "si"
+                    extraviado: "si",
+                    nChip:"12323"
                 }
             ]
         }

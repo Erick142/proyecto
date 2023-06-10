@@ -11,7 +11,7 @@
 					<li class="nav-item mx-2"><a class="nav-link disabled" href="#"> Adoptar </a></li>
 					<li class="nav-item dropdown mx-2"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mis mascotas </a>
 						<ul class="dropdown-menu dropdown-menu-dark">
-							<li><router-link class="dropdown-item" :to="'/mascota/listado'">Ver mis mascotas </router-link></li>
+							<li><router-link class="dropdown-item" :to="'/mascota/listado'">Ver listado mascotas </router-link></li>
 							<li><router-link class="dropdown-item" :to="'/mascota/crear'">Agregar una mascota </router-link></li>
 							<li><router-link class="dropdown-item" :to="'/mascota/ver'">Ver mascota</router-link></li>
 							<li><router-link class="dropdown-item disabled text-warning-emphasis" :to="'#'"> &iexcl;MI MASCOTA ESTA EXTRAVIADA! </router-link></li>
@@ -21,7 +21,7 @@
 						<ul class="dropdown-menu dropdown-menu-dark">
 							<li><router-link class="dropdown-item disabled" :to="'#'"> Ver mi perfil </router-link></li>
 							<li><router-link class="dropdown-item" :to="'/login'"> Iniciar sesion </router-link></li>
-							<li><router-link class="dropdown-item" :to="'/registro'"> Registrarce </router-link></li>
+							<li><router-link class="dropdown-item" :to="'/registro'"> Registrarse </router-link></li>
 						</ul>
 					</li>
 				</ul>

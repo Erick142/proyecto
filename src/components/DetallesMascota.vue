@@ -2,8 +2,8 @@
   <div class="container-fluid p-5" id="xd">
     <div class="row" v-if="mascota">
         <div class="col-md-3 col-12">
-            <img :src="mascota.imagen" class="w-100 rounded-4 mb-2" alt="gatos">
-            <img :src="mascota.imagen" class="w-100 rounded-4 mb-2" alt="gatos">
+            <img :src="mascota.fotos[0]" class="w-100 rounded-4 mb-2" alt="gatos">
+            <img :src="mascota.fotos[0]" class="w-100 rounded-4 mb-2" alt="gatos">
         </div>
         <div class="col-md-9 col-12" >
             <div class="row row-cols-1">
@@ -78,8 +78,11 @@ export default {
                 edad: 3,
                 sexo: "Macho",
                 especie: "gato",
-                imagen: "https://farm2.staticflickr.com/1919/45579541712_f58c1fd0ed_o.jpg",
-                descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex nulla deleniti consequatur ipsam, quas iusto impedit. Officia laborum, vitae iste necessitatibus aliquam facere neque non odit tenetur iure a.Eaque voluptatibus temporibus repellat repellendus nisi explicabo adipisci sit hic inventore voluptatum quasi perferendis, quaerat eius id ut consequuntur expedita, delectus ab rem officiis, necessitatibus animi. Rem necessitatibus corrupti beatae!Quas repudiandae eos cumque quod omnis nobis ex rerum sed excepturi labore! Temporibus, amet. Temporibus, exercitationem ab repudiandae assumenda ipsa quidem facilis, quo id soluta mollitia sunt inventore enim quas.Optio provident officiis neque quod aut animi assumenda ratione cumque, sapiente adipisci quia repellat iste tempore quae voluptatem dolores maiores veritatis voluptatum nisi blanditiis enim quisquam, tenetur cum? Minima, ullam.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit a, unde, quod reiciendis aut omnis corrupti nam non nulla quam, commodi provident tempore ad quo sit reprehenderit veniam cum voluptates!"
+                fotos: ["https://farm2.staticflickr.com/1919/45579541712_f58c1fd0ed_o.jpg"],
+                descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex nulla deleniti consequatur ipsam, quas iusto impedit. Officia laborum, vitae iste necessitatibus aliquam facere neque non odit tenetur iure a.Eaque voluptatibus temporibus repellat repellendus nisi explicabo adipisci sit hic inventore voluptatum quasi perferendis, quaerat eius id ut consequuntur expedita, delectus ab rem officiis, necessitatibus animi. Rem necessitatibus corrupti beatae!Quas repudiandae eos cumque quod omnis nobis ex rerum sed excepturi labore! Temporibus, amet. Temporibus, exercitationem ab repudiandae assumenda ipsa quidem facilis, quo id soluta mollitia sunt inventore enim quas.Optio provident officiis neque quod aut animi assumenda ratione cumque, sapiente adipisci quia repellat iste tempore quae voluptatem dolores maiores veritatis voluptatum nisi blanditiis enim quisquam, tenetur cum? Minima, ullam.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit a, unde, quod reiciendis aut omnis corrupti nam non nulla quam, commodi provident tempore ad quo sit reprehenderit veniam cum voluptates!",
+                nChip:"10123",
+                adopcion:false,
+                extraviado:false
             }
         }
     },
