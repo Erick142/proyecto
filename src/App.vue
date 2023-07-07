@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NavBar from "./vistas/NavBar.vue"
+import NavBar from "./components/NavBar.vue"
 import FooTer from "./vistas/FooTer.vue"
 
 export default {
