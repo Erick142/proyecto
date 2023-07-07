@@ -4,9 +4,14 @@ import LandingPage from "./vistas/LandingPage.vue";
 import CrearMascota from "./vistas/CrearMascota.vue";
 import DetallesMascota from "./vistas/DetallesMascota.vue";
 import ListadoMascota from "./vistas/ListadoMascotas.vue";
+import ListadoAdopcion from "./vistas/ListadoAdopcion.vue";
 import EditarMascota from "./vistas/EditarMascota.vue";
 import EliminarMascota from "./vistas/EliminarMascota.vue";
+import logout from "./components/logout.vue";
+import CrearAnuncio from "./vistas/CrearAnuncio.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import PerfilUsuario from "./vistas/PerfilUsuario.vue";
+import MisMascotas from "./vistas/MisMascotas.vue";
 
 const routes=[
     {path:"/login", component:UserLogin},
@@ -16,7 +21,14 @@ const routes=[
     {path:"/mascota/ver/:id",component:DetallesMascota},
     {path:"/mascota/listado", component:ListadoMascota},
     {path:"/mascota/editar/:id", component:EditarMascota},
-    {path:"/mascota/eliminar/:id", component:EliminarMascota}
+    {path:"/mascota/eliminar/:id", component:EliminarMascota},
+    {path:"/logout", component:logout},
+    {path:"/adopcion/agregar", component:CrearAnuncio},
+    {path:"/adopcion/listado", component:ListadoAdopcion},
+    {path: '/usuario/:idUsuario',name: 'PerfilUsuario',component: PerfilUsuario},
+    {path:"/mascota/mismascotas",component:MisMascotas},
+
+    
 ]
 const router=createRouter({
     history:createWebHistory(),

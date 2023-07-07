@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-2">
                             <select class="form-select form-select-lg h-100 small-text" v-model="filtroExtraviado">
-                                <option value="">Extriaviado</option>
+                                <option value="">Extraviado</option>
                                 <option value="si">si</option>
                                 <option value="no">no</option>
                             </select>
@@ -58,14 +58,9 @@
                                     <li class="list-group-item">Sexo: {{ mascota.sexo }} </li>
                                     <li class="list-group-item">Edad: {{mascota.edad}} meses</li>
                                     <li class="list-group-item">especie: {{mascota.especie}} </li>
-                                    <li class="list-group-item">en adopcion: {{mascota.adopcion}} </li>
                                     <li class="list-group-item">extraviado: {{mascota.extraviado}} </li>
                                 </ul>
-                                <div class="card-body">
-                                    <botonAdoptarVue :mascota="mascota" v-if="mascota.adopcion=='si'"/>
-                                    <botonExtrabiadoVue :mascota="mascota"/>
-                                    <button class="btn btn-success  ">Contactar dueño</button>
-                                </div>
+                                
                             </div>                            
                         </div>
                     </div>
@@ -78,7 +73,7 @@
 
 <script>
 import botonAdoptarVue from '@/components/botonAdoptar.vue'
-import botonExtrabiadoVue from '@/components/botonExtrabiado.vue'
+import botonExtraviadoVue from '@/components/botonExtraviado.vue'
 import axios from 'axios'
 export default {
     name: "ListadoMascota",
@@ -93,7 +88,7 @@ export default {
     },
     components:{
         botonAdoptarVue,
-        botonExtrabiadoVue,
+        botonExtraviadoVue,
     },
     methods:{
         async cargarMascotas(){

@@ -3,7 +3,7 @@
         <div class="container-md p-5 rounded-4" id="login_container">
             <div class="row-cols-1 row">
                 <div class="col mb-4 d-flex justify-content-center">
-                    <div class="fs-2 fw-semibold">Registrarce</div>
+                    <div class="fs-2 fw-semibold">Registrarse</div>
                 </div>
                 <div class="col mb-4 d-flex justify-content-center">
                     <img src="..\img\in.png" alt="" id="login_icon">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4 fw-bold" @click="enviarFormulario"> Registrarce</button>
+                        <button type="submit" class="btn btn-primary px-4 fw-bold" @click="enviarFormulario"> Registrarse</button>
                     </div>
                 </div>
             </div>
