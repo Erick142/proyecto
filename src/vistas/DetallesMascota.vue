@@ -81,8 +81,11 @@
         <div class="col d-flex justify-content-center" v-if="mascota.extraviada=='si'">
             <button class="btn btn-danger">Lo encontre</button>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col d-flex justify-content-center mb-2">
             <router-link :to="`/mascota/eliminar/${mascota._id}`"><button class="btn btn-danger">eliminar mascota</button> </router-link>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <router-link :to="`/mascota/editar/${mascota._id}`"><button class="btn btn-success">editar mascota</button> </router-link>
         </div>
     </div>
   </div>

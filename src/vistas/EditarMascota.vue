@@ -79,17 +79,40 @@
                                 <label class="input-group-text" for="inputImagen">
                                     imagen de tu mascota
                                 </label>
-                                <input type="file" class="form-control" id="inputImagen" />
+                                <input multiple type="file" class="form-control" id="inputImagen" @change="procesarImagenes"/>
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <img :src="mascota.fotos[0]" :alt="`mascota-${mascota.nombre}`" class="w-100 rounded-3" v-if="mascota.fotos"/>
+                            <div id="carouselExample" class="carousel slide">
+							<div class="carousel-inner">
+                                <template v-for="(foto, index) in mascota.fotos" :key="index">
+                                    <div class="carousel-item active" v-if="index==0">
+                                        <div class="imagen-container">
+                                            <img :src="`data:image/png;base64,${foto}`" class="foto-mascota" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" v-else>
+                                        <div class="imagen-container">
+                                            <img :src="`data:image/png;base64,${foto}`" class="foto-mascota" alt="...">
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-center mb-3">
                     <button type="submit" class="btn btn-primary px-4 fw-semibold" @click="actualizarMascota">
-                        agregar mascota
+                        editar mascota
                     </button>
                 </div>
             </div>
@@ -98,38 +121,75 @@
 </template>
 
 <script>
+import axios from "axios"
+import bootstrap from 'bootstrap/dist/js/bootstrap'
+import router from '@/router'
 export default {
     data(){
         return{
             mascota:{},
-            mascotaUpdate:{}
+            mascotaUpdate:{},
+            id:null
         }
     },
     methods:{
-        llamarMascota(){
-            //axios.get()
-            const mascota={
-                id:1,
-                nombre: "Sr pelusa",
-                edad: 3,
-                sexo: "Macho",
-                especie: "gato",
-                fotos: ["https://farm2.staticflickr.com/1919/45579541712_f58c1fd0ed_o.jpg"],
-                descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex nulla deleniti consequatur ipsam, quas iusto impedit. Officia laborum, vitae iste necessitatibus aliquam facere neque non odit tenetur iure a.Eaque voluptatibus temporibus repellat repellendus nisi explicabo adipisci sit hic inventore voluptatum quasi perferendis, quaerat eius id ut consequuntur expedita, delectus ab rem officiis, necessitatibus animi. Rem necessitatibus corrupti beatae!Quas repudiandae eos cumque quod omnis nobis ex rerum sed excepturi labore! Temporibus, amet. Temporibus, exercitationem ab repudiandae assumenda ipsa quidem facilis, quo id soluta mollitia sunt inventore enim quas.Optio provident officiis neque quod aut animi assumenda ratione cumque, sapiente adipisci quia repellat iste tempore quae voluptatem dolores maiores veritatis voluptatum nisi blanditiis enim quisquam, tenetur cum? Minima, ullam.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit a, unde, quod reiciendis aut omnis corrupti nam non nulla quam, commodi provident tempore ad quo sit reprehenderit veniam cum voluptates!",
-                nChip:"10123",
-                adopcion:"no",
-                extraviado:"no"
+        async llamarMascota(){
+            try{
+                let respuesta = await axios.get(`http://localhost:3001/mascota/${this.id}`)
+                respuesta = respuesta.data;
+                this.mascota=respuesta.mascota;
+                this.mascotaUpdate={...this.mascota};
+                console.log(this.mascotaUpdate)
+            }catch(e){
+                console.log(e);
             }
-            return mascota;
         },
-        actualizarMascota(){
-            console.log(this.mascota);
-            console.log(this.mascotaUpdate);
-        }
+        async actualizarMascota(){
+            try{
+                await axios.put(`http://localhost:3001/mascota/editar/${this.mascota._id}`, this.mascotaUpdate)
+                router.push("/mascota/listado")
+            }catch(e){
+                console.log(e)
+            }
+        },
+        procesarImagenes(event) {
+			this.mascotaUpdate.fotos=[]
+			const files = event.target.files;
+			if (files && files.length > 0) {
+				for (let i = 0; i < files.length; i++) {
+				const file = files[i];
+				const reader = new FileReader();
+
+				reader.onload = () => {
+					const base64String = reader.result.split(",")[1]; // Obtenemos la cadena Base64 sin el encabezado
+
+					// Agregamos la cadena Base64 al array de fotos
+					this.mascotaUpdate.fotos.push(base64String);
+					this.actualizarCarrusel();
+				};
+
+				reader.readAsDataURL(file);
+				}
+			}
+		},
+		actualizarCarrusel(){
+			const carrusel = new bootstrap.Carousel(document.getElementById("carouselExample"));
+			const carouselInner = document.querySelector(".carousel-inner");
+			carouselInner.innerHTML="";
+			for(let i=0;i<this.mascota.fotos.length;i++){
+				if(i==0){
+					carouselInner.innerHTML+=`<div class="carousel-item active"><div class="imagen-container-crear"><img src="${'data:image/png;base64,'+this.mascotaUpdate.fotos[i]}" class="foto-mascota-crear" alt="..."></div></div>`;
+				}else{
+				carouselInner.innerHTML+=`<div class="carousel-item"><div class="imagen-container-crear"><img src="${'data:image/png;base64,'+this.mascotaUpdate.fotos[i]}" class="foto-mascota-crear" alt="..."></div></div>`;
+				}
+			}
+			carrusel.dispose();
+		}
     },
     mounted(){
-        this.mascota= this.llamarMascota();
-        this.mascotaUpdate={...this.mascota};
+        this.id = this.$route.params.id;
+        this.llamarMascota()
+        
     }
 
 }
