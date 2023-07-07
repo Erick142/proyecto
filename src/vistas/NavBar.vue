@@ -32,8 +32,17 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-    name: "NavBar"
+    name: "NavBar",
+	mounted(){
+		const accessToken = localStorage.getItem('token');
+
+		if (accessToken) {
+		axios.defaults.headers.common['Authorization'] = accessToken;
+		}
+		console.log(accessToken);
+	}
 
 }
 </script>

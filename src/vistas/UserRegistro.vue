@@ -10,8 +10,20 @@
                 </div>
                 <div class="col mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatinguUser" placeholder="Nombre de usuario" v-model="formulario.name">
-                        <label for="floatinguUser">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="floatinguUser" placeholder="Nombre" v-model="formulario.nombre">
+                        <label for="floatinguUser">Nombre</label>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatinguUser" placeholder="Apellido paterno" v-model="formulario.apPaterno">
+                        <label for="floatinguUser">Apellido paterno</label>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatinguUser" placeholder="Apellido paterno" v-model="formulario.apMaterno">
+                        <label for="floatinguUser">Apellido materno</label>
                     </div>
                 </div>
                 <div class="col mb-4">
@@ -28,7 +40,7 @@
                 </div>
                 <div class="col mb-4">
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Contraseña" v-model="confirmarPassword">
+                        <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Contraseña" v-model="formulario.repassword">
                         <label for="floatingPasswordConfirm">Confirmar contraseña</label>
                     </div>
                 </div>
@@ -40,52 +52,33 @@
             </div>
         </div>
     </div>
-    <div class="toast-container position-fixed top-0 start-0 p-3">
-        <div class="toast t-o s-0" role="alert" aria-live="assertive" aria-atomic="true" id="toast">
-        <div class="toast-header">
-            <strong class="me-auto">Find Your pet!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            La contraseñas son incorrectas!
-        </div>
-    </div>
-    </div>
 </template>
 
 <script>
-import bootstrap from 'bootstrap/dist/js/bootstrap';
-//import axios from "axios";
+import axios from "axios";
 export default {
     name: "UserRegistro",
     data(){
         return{
             formulario:{
-                name: null,
+                nombre: null,
+                apPaterno: null,
+                apMaterno: null,
                 email: null,
                 password: null,
-            },
-            confirmarPassword:null
+                repassword: null,
+            }
         }
     },
     methods:{
         async enviarFormulario(){
-            if(!this.samePassword()){
-                this.desplegarToast(); 
+            try{
+                
+                await axios.post("http://localhost:3001/auth/register", this.formulario)
+                window.location.href = "/login";
+            }catch(e){
+                console.log(e)
             }
-            else{
-                console.log("send")
-                /* let respuesta = await axios.post("http://localhost:3001/auth/register", this.formulario)
-                respuesta = respuesta.data; */
-            }
-        },
-        desplegarToast(){
-            const toast = new bootstrap.Toast(document.getElementById("toast"));
-            toast.show();
-            
-        },
-        samePassword(){
-            return this.formulario.password==this.confirmarPassword;
         }
     }
 }

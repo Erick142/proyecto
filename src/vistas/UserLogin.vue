@@ -38,7 +38,8 @@
 </template>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
+import router from '@/router'
 export default {
     name: "UserLogin",
     data(){
@@ -51,9 +52,14 @@ export default {
     },
     methods:{
         async enviarFormulario(){
-            console.log("enviar")
-            /* let respuesta = await axios.post("http://localhost:3001/auth/login", this.formulario);
-            respuesta = respuesta.data; */
+            try{
+                let respuesta = await axios.post("http://localhost:3001/auth/login", this.formulario);
+                respuesta = respuesta.data;
+                localStorage.setItem("token", respuesta.accesToken)
+                router.push("/home")
+            }catch(e){
+                console.log(e)
+            }
         }
     }
 

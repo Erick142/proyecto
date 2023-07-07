@@ -124,29 +124,33 @@
 
 <script>
 import bootstrap from 'bootstrap/dist/js/bootstrap'
-//import axios from "axios";
+import router from "@/router.js";
+import axios from "axios";
 export default {
     name: "CrearMascota",
 	data(){
 		return{
 			mascota:{
+				token:null,
 				nombre:null,
 				descripcion:null,
 				edad:null,
 				especie:null,
 				sexo:null,
 				nChip:null,
-				fotos:[]
+				fotos:[],
+				extraviada:'no'
 			}
 		}
 	},
 	methods:{
 		async enviarFormulario(){
-			console.log(this.mascota)
-			
-			/* let respuesta = await axios.post("http://localhost:3001/mascota/agregar",this.mascota);
-			respuesta = respuesta.data; */
-			
+			try{
+				await axios.post("http://localhost:3001/mascota/agregar",this.mascota);
+				router.push("/home")
+			}catch(e){
+				console.log(e)
+			}	
 		},
 		procesarImagenes(event) {
 			this.mascota.fotos=[]
@@ -181,6 +185,9 @@ export default {
 			}
 			carrusel.dispose();
 		}
+	},
+	mounted(){
+		this.mascota.token=localStorage.getItem("token")
 	}
 }
 </script>
