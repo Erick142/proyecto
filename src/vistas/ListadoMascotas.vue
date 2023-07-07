@@ -72,8 +72,6 @@
 </template>
 
 <script>
-import botonAdoptarVue from '@/components/botonAdoptar.vue'
-import botonExtraviadoVue from '@/components/botonExtraviado.vue'
 import axios from 'axios'
 export default {
     name: "ListadoMascota",
@@ -87,8 +85,6 @@ export default {
         }
     },
     components:{
-        botonAdoptarVue,
-        botonExtraviadoVue,
     },
     methods:{
         async cargarMascotas(){
