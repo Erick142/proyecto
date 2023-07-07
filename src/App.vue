@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue"
-import FooTer from "./components/FooTer.vue"
+import NavBar from "./vistas/NavBar.vue"
+import FooTer from "./vistas/FooTer.vue"
 
 export default {
   name: 'App',

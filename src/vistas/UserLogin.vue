@@ -1,7 +1,6 @@
 <template>
     <div class="container-fluid py-5">
         <div class="container-md p-5 rounded-4" id="login_container">
-        <form action="" method="post">
             <div class="row-cols-1 row">
                 <div class="col mb-4 d-flex justify-content-center">
                     <div class="fs-2 fw-semibold">Iniciar sesion</div>
@@ -11,13 +10,13 @@
                 </div>
                 <div class="col mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatinguUser" placeholder="Nombre de usuario">
+                        <input type="text" class="form-control" id="floatinguUser" placeholder="Nombre de usuario" v-model="formulario.email">
                         <label for="floatinguUser">Nombre de usuario</label>
                     </div>
                 </div>
                 <div class="col mb-4">
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" v-model="formulario.password">
                         <label for="floatingPassword">Contraseña</label>
                     </div>
                 </div>
@@ -26,25 +25,37 @@
                         <div class="col d-flex justify-content-center">
                             <div class="form-text">No tienes una cuenta? haz click <router-link class="text-danger fw-semibold" :to="'/registro'">aquí!</router-link></div>
                         </div>
-                        <div class="col d-flex justify-content-center text-center">
-                            <div class="form-text">Olvidate tu contraseña o nombre de usuario? haz click <a class="text-danger fw-semibold" href="#">aquí!</a></div>
-                        </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4 fw-bold"> Ingresar</button>
+                        <button type="submit" class="btn btn-primary px-4 fw-bold" @click="enviarFormulario">Ingresar</button>
                     </div>
                 </div>
             </div>
-        </form>
     </div>
     </div>
 </template>
 
 <script>
+//import axios from 'axios'
 export default {
-    name: "UserLogin"
+    name: "UserLogin",
+    data(){
+        return{
+            formulario:{
+                email:null,
+                password:null
+            }
+        }
+    },
+    methods:{
+        async enviarFormulario(){
+            console.log("enviar")
+            /* let respuesta = await axios.post("http://localhost:3001/auth/login", this.formulario);
+            respuesta = respuesta.data; */
+        }
+    }
 
 }
 </script>

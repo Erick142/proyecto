@@ -125,7 +125,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .carousel-item{
     width: 100%;
     height: 93vh;

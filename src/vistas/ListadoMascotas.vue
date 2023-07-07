@@ -62,7 +62,8 @@
                                     <li class="list-group-item">extraviado: {{mascota.extraviado}} </li>
                                 </ul>
                                 <div class="card-body">
-                                    <button class="btn btn-primary me-3" v-if="mascota.adopcion=='si'">Adoptar</button>
+                                    <botonAdoptarVue :mascota="mascota" v-if="mascota.adopcion=='si'"/>
+                                    <botonExtrabiadoVue :mascota="mascota"/>
                                     <button class="btn btn-success  ">Contactar dueño</button>
                                 </div>
                             </div>                            
@@ -76,6 +77,8 @@
 </template>
 
 <script>
+import botonAdoptarVue from '@/components/botonAdoptar.vue'
+import botonExtrabiadoVue from '@/components/botonExtrabiado.vue'
 export default {
     name: "ListadoMascota",
     data(){
@@ -86,6 +89,10 @@ export default {
             filtroExtraviado: "",
             filtroEspecie: ""
         }
+    },
+    components:{
+        botonAdoptarVue,
+        botonExtrabiadoVue
     },
     methods:{
         cargarMascotas(){
