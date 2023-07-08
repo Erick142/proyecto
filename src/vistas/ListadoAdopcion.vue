@@ -36,9 +36,8 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="card-body">
-                                        <router-link :to="`/mascota/ver/${mascota._id}`">
                                             <h5 class="card-title">{{ mascota.nombre }}</h5>
-                                        </router-link>
+                                        
                                         <p class="card-text">{{ mascota.descripcion }}</p>
                                     </div>
                                     <ul class="list-group list-group-flush">
@@ -83,7 +82,7 @@ export default {
     name: "ListadoMascota",
     data() {
         return {
-            mascotas: null,
+            mascotas:[],
             filtroEdad: 0,
             filtroEspecie: "",
             mostrarModal: false,
