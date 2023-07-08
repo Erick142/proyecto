@@ -146,6 +146,7 @@ export default {
 	mounted() {
 		const token = localStorage.getItem("token");
 		const tokenData = jwtDecode(token);
+		console.log(tokenData.id)
 		this.idUsuario = tokenData.id;
 		this.anuncio.idUsuario = this.idUsuario;
 	},

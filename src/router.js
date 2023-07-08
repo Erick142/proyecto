@@ -11,7 +11,6 @@ import logout from "./components/logout.vue";
 import CrearAnuncio from "./vistas/CrearAnuncio.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import PerfilUsuario from "./vistas/PerfilUsuario.vue";
-import MisMascotas from "./vistas/MisMascotas.vue";
 
 const routes=[
     {path:"/login", component:UserLogin},
@@ -25,8 +24,7 @@ const routes=[
     {path:"/logout", component:logout},
     {path:"/adopcion/agregar", component:CrearAnuncio},
     {path:"/adopcion/listado", component:ListadoAdopcion},
-    {path: '/usuario/:idUsuario',name: 'PerfilUsuario',component: PerfilUsuario},
-    {path:"/mascota/mismascotas",component:MisMascotas},
+    {path: '/usuario/:idUsuario',name: 'PerfilUsuario',component: PerfilUsuario}
 
     
 ]
